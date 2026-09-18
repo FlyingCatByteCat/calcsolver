@@ -418,8 +418,25 @@ input:checked+.v-slider:before{transform:translateX(22px)}
 .v-side-card{background:#1a1a1a;border-radius:8px;overflow:hidden;cursor:pointer;border:1px solid #333;text-align:center}
 .v-side-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
 .v-side-title{font-size:11px;padding:5px;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.v-frame-main{flex:1;background:#000}
+.v-frame-main{flex:1;background:#000;position:relative}
 iframe{width:100%;height:100%;border:none}
+.v-fullscreen-btn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:50;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border:1px solid #fff;
+  border-radius:8px;
+  padding:8px 14px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  opacity:0.85;
+  transition:opacity 0.2s;
+}
+.v-fullscreen-btn:hover{opacity:1}
 
 @media(max-width:900px){
   .v-view-split{flex-direction:column}
@@ -499,7 +516,7 @@ Code Mode
 <div id="v-activity-view">
 <div class="v-view-split">
 <div class="v-sidebar-widgets" id="v-side-left"></div>
-<div class="v-frame-main"><iframe id="v-iframe-player"></iframe></div>
+<div class="v-frame-main"><button class="v-fullscreen-btn" id="v-fullscreen-btn" onclick="vFullscreen()">Fullscreen</button><iframe id="v-iframe-player" allowfullscreen></iframe></div>
 <div class="v-sidebar-widgets" id="v-side-right"></div>
 </div>
 </div>
@@ -580,6 +597,20 @@ titleEl.style.display = 'block';
 
 vPopulateWidgets();
 }
+
+window.vFullscreen=function(){
+var el=document.getElementById('v-activity-view');
+if(!document.fullscreenElement && !document.webkitFullscreenElement){
+  (el.requestFullscreen||el.webkitRequestFullscreen).call(el);
+}else{
+  (document.exitFullscreen||document.webkitExitFullscreen).call(document);
+}
+};
+function vSyncFullscreenLabel(){
+document.getElementById('v-fullscreen-btn').innerText=(document.fullscreenElement||document.webkitFullscreenElement)?"Exit Fullscreen":"Fullscreen";
+}
+document.addEventListener('fullscreenchange',vSyncFullscreenLabel);
+document.addEventListener('webkitfullscreenchange',vSyncFullscreenLabel);
 
 window.vGoGrid=function(){
 document.getElementById('v-activity-view').style.display='none';
