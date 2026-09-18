@@ -1,0 +1,5 @@
+[
+  { "name": "Server 3 - Geometry Lab", "code": "S301", "iframe": "https://example.com/geometry-lab" },
+  { "name": "Server 3 - Fraction Trainer", "code": "S302", "iframe": "https://example.com/fraction-trainer" },
+  { "name": "Server 3 - Time Tables", "code": "S303", "iframe": "https://example.com/time-tables" }
+]

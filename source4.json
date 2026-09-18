@@ -1,0 +1,5 @@
+[
+  { "name": "Server 4 - Word Problems", "code": "S401", "iframe": "https://example.com/word-problems" },
+  { "name": "Server 4 - Prime Finder", "code": "S402", "iframe": "https://example.com/prime-finder" },
+  { "name": "Server 4 - Ratio Helper", "code": "S403", "iframe": "https://example.com/ratio-helper" }
+]

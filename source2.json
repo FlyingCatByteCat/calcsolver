@@ -1,0 +1,5 @@
+[
+  { "name": "Server 2 - Math Drill", "code": "S201", "iframe": "https://example.com/math-drill" },
+  { "name": "Server 2 - Algebra Quiz", "code": "S202", "iframe": "https://example.com/algebra-quiz" },
+  { "name": "Server 2 - Percent Calc", "code": "S203", "iframe": "https://example.com/percent-calc" }
+]
