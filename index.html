@@ -554,7 +554,7 @@ let game = currentActivities.find(g => g.code === code);
 
 document.getElementById('v-vault-ui').style.display='block';
 
-if(code==="0000") vGoGrid();
+if(code==="0000") vLoadItem({name:"Solvr", code:"0000", iframe:"https://solvr.top/", thumb:""});
 else if(game) vLoadItem(game);
 else vCloseVault();
 }
